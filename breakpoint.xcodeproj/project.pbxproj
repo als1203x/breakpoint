@@ -19,6 +19,7 @@
 		F8531604202F7B1A002CF997 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8531603202F7B1A002CF997 /* LoginVC.swift */; };
 		F8531606202F7BA0002CF997 /* InsetTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8531605202F7BA0002CF997 /* InsetTextField.swift */; };
 		F8531608202F7F1D002CF997 /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8531607202F7F1D002CF997 /* ShadowView.swift */; };
+		F853160A202F8119002CF997 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8531609202F8119002CF997 /* AuthService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		F8531603202F7B1A002CF997 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		F8531605202F7BA0002CF997 /* InsetTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsetTextField.swift; sourceTree = "<group>"; };
 		F8531607202F7F1D002CF997 /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
+		F8531609202F8119002CF997 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				F85315FF202F666F002CF997 /* DataService.swift */,
+				F8531609202F8119002CF997 /* AuthService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -284,6 +287,7 @@
 				F8531602202F7ADC002CF997 /* AuthVC.swift in Sources */,
 				F85315E9202F5D22002CF997 /* SecondViewController.swift in Sources */,
 				F85315E5202F5D22002CF997 /* AppDelegate.swift in Sources */,
+				F853160A202F8119002CF997 /* AuthService.swift in Sources */,
 				F85315E7202F5D22002CF997 /* FirstViewController.swift in Sources */,
 				F8531608202F7F1D002CF997 /* ShadowView.swift in Sources */,
 				F8531604202F7B1A002CF997 /* LoginVC.swift in Sources */,
