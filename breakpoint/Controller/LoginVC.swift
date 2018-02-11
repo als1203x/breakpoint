@@ -25,7 +25,7 @@ class LoginVC: UIViewController {
                 if success  {
                     self.dismiss(animated: true, completion: nil)
                 }else   {
-                    print(Strin(describing: loginEror?.localizedDescription))
+                    print(String(describing: loginEror?.localizedDescription))
                 }
                 
                 AuthService.instance.registerUser(withEmail: self.emailField.text!, andPassword: self.passwordField.text!, userCreationComplete: { (success, registrationError) in
