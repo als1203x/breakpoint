@@ -20,7 +20,7 @@ extension UIView    {
         let curve = notification.userInfo![UIKeyboardAnimationCurveUserInfoKey] as! UInt
         
         let beginingFrame = (notification.userInfo![UIKeyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
-        let endFrame = (notification.userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue
+        let endFrame = (notification.userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
         let deltaY = endFrame.origin.y - beginingFrame.origin.y
         
         // Create animation block object
