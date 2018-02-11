@@ -21,6 +21,7 @@
 		F8531608202F7F1D002CF997 /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8531607202F7F1D002CF997 /* ShadowView.swift */; };
 		F853160A202F8119002CF997 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8531609202F8119002CF997 /* AuthService.swift */; };
 		F853160C202FEB4D002CF997 /* MeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F853160B202FEB4D002CF997 /* MeVC.swift */; };
+		F853160E202FF91C002CF997 /* CreatePostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F853160D202FF91C002CF997 /* CreatePostVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		F8531607202F7F1D002CF997 /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
 		F8531609202F8119002CF997 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		F853160B202FEB4D002CF997 /* MeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeVC.swift; sourceTree = "<group>"; };
+		F853160D202FF91C002CF997 /* CreatePostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +118,7 @@
 				F8531601202F7ADC002CF997 /* AuthVC.swift */,
 				F8531603202F7B1A002CF997 /* LoginVC.swift */,
 				F853160B202FEB4D002CF997 /* MeVC.swift */,
+				F853160D202FF91C002CF997 /* CreatePostVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -294,6 +297,7 @@
 				F853160A202F8119002CF997 /* AuthService.swift in Sources */,
 				F85315E7202F5D22002CF997 /* FeedVC.swift in Sources */,
 				F8531608202F7F1D002CF997 /* ShadowView.swift in Sources */,
+				F853160E202FF91C002CF997 /* CreatePostVC.swift in Sources */,
 				F8531604202F7B1A002CF997 /* LoginVC.swift in Sources */,
 				F8531606202F7BA0002CF997 /* InsetTextField.swift in Sources */,
 				F8531600202F666F002CF997 /* DataService.swift in Sources */,
