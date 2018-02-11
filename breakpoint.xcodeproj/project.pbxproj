@@ -24,6 +24,7 @@
 		F853160E202FF91C002CF997 /* CreatePostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F853160D202FF91C002CF997 /* CreatePostVC.swift */; };
 		F8531610202FFCDA002CF997 /* UIViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = F853160F202FFCDA002CF997 /* UIViewExt.swift */; };
 		F853161220300300002CF997 /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F853161120300300002CF997 /* FeedCell.swift */; };
+		F8531616203005DF002CF997 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8531615203005DF002CF997 /* Message.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		F853160D202FF91C002CF997 /* CreatePostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostVC.swift; sourceTree = "<group>"; };
 		F853160F202FFCDA002CF997 /* UIViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExt.swift; sourceTree = "<group>"; };
 		F853161120300300002CF997 /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
+		F8531615203005DF002CF997 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +142,7 @@
 		F85315FA202F5DC4002CF997 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				F8531615203005DF002CF997 /* Message.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -309,6 +312,7 @@
 				F8531604202F7B1A002CF997 /* LoginVC.swift in Sources */,
 				F8531606202F7BA0002CF997 /* InsetTextField.swift in Sources */,
 				F8531600202F666F002CF997 /* DataService.swift in Sources */,
+				F8531616203005DF002CF997 /* Message.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
