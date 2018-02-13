@@ -26,6 +26,7 @@
 		F853161220300300002CF997 /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F853161120300300002CF997 /* FeedCell.swift */; };
 		F8531616203005DF002CF997 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8531615203005DF002CF997 /* Message.swift */; };
 		F8753FB92032E48400AFCBE6 /* CreateGroupsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8753FB82032E48400AFCBE6 /* CreateGroupsVC.swift */; };
+		F8753FBB2032E83400AFCBE6 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8753FBA2032E83400AFCBE6 /* UserCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		F853161120300300002CF997 /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
 		F8531615203005DF002CF997 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		F8753FB82032E48400AFCBE6 /* CreateGroupsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGroupsVC.swift; sourceTree = "<group>"; };
+		F8753FBA2032E83400AFCBE6 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +140,7 @@
 				F8531605202F7BA0002CF997 /* InsetTextField.swift */,
 				F8531607202F7F1D002CF997 /* ShadowView.swift */,
 				F853161120300300002CF997 /* FeedCell.swift */,
+				F8753FBA2032E83400AFCBE6 /* UserCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -310,6 +313,7 @@
 				F85315E5202F5D22002CF997 /* AppDelegate.swift in Sources */,
 				F853160A202F8119002CF997 /* AuthService.swift in Sources */,
 				F8753FB92032E48400AFCBE6 /* CreateGroupsVC.swift in Sources */,
+				F8753FBB2032E83400AFCBE6 /* UserCell.swift in Sources */,
 				F85315E7202F5D22002CF997 /* FeedVC.swift in Sources */,
 				F8531608202F7F1D002CF997 /* ShadowView.swift in Sources */,
 				F853160E202FF91C002CF997 /* CreatePostVC.swift in Sources */,
