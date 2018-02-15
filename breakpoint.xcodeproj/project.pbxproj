@@ -27,6 +27,8 @@
 		F8531616203005DF002CF997 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8531615203005DF002CF997 /* Message.swift */; };
 		F86E316F2035887200BC11F9 /* GroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86E316E2035887200BC11F9 /* GroupCell.swift */; };
 		F86E31732035928D00BC11F9 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86E31722035928D00BC11F9 /* Group.swift */; };
+		F86E31752035AA1400BC11F9 /* GroupFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86E31742035AA1400BC11F9 /* GroupFeedCell.swift */; };
+		F86E31772035AAB600BC11F9 /* GroupFeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86E31762035AAB600BC11F9 /* GroupFeedVC.swift */; };
 		F8753FB92032E48400AFCBE6 /* CreateGroupsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8753FB82032E48400AFCBE6 /* CreateGroupsVC.swift */; };
 		F8753FBB2032E83400AFCBE6 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8753FBA2032E83400AFCBE6 /* UserCell.swift */; };
 /* End PBXBuildFile section */
@@ -56,6 +58,8 @@
 		F8531615203005DF002CF997 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		F86E316E2035887200BC11F9 /* GroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCell.swift; sourceTree = "<group>"; };
 		F86E31722035928D00BC11F9 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
+		F86E31742035AA1400BC11F9 /* GroupFeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupFeedCell.swift; sourceTree = "<group>"; };
+		F86E31762035AAB600BC11F9 /* GroupFeedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupFeedVC.swift; sourceTree = "<group>"; };
 		F8753FB82032E48400AFCBE6 /* CreateGroupsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGroupsVC.swift; sourceTree = "<group>"; };
 		F8753FBA2032E83400AFCBE6 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -134,6 +138,7 @@
 				F853160B202FEB4D002CF997 /* MeVC.swift */,
 				F853160D202FF91C002CF997 /* CreatePostVC.swift */,
 				F8753FB82032E48400AFCBE6 /* CreateGroupsVC.swift */,
+				F86E31762035AAB600BC11F9 /* GroupFeedVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -146,6 +151,7 @@
 				F853161120300300002CF997 /* FeedCell.swift */,
 				F8753FBA2032E83400AFCBE6 /* UserCell.swift */,
 				F86E316E2035887200BC11F9 /* GroupCell.swift */,
+				F86E31742035AA1400BC11F9 /* GroupFeedCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -317,6 +323,8 @@
 				F86E316F2035887200BC11F9 /* GroupCell.swift in Sources */,
 				F8531602202F7ADC002CF997 /* AuthVC.swift in Sources */,
 				F85315E9202F5D22002CF997 /* GroupsVC.swift in Sources */,
+				F86E31772035AAB600BC11F9 /* GroupFeedVC.swift in Sources */,
+				F86E31752035AA1400BC11F9 /* GroupFeedCell.swift in Sources */,
 				F85315E5202F5D22002CF997 /* AppDelegate.swift in Sources */,
 				F853160A202F8119002CF997 /* AuthService.swift in Sources */,
 				F8753FB92032E48400AFCBE6 /* CreateGroupsVC.swift in Sources */,
