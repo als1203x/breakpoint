@@ -26,6 +26,7 @@
 		F853161220300300002CF997 /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F853161120300300002CF997 /* FeedCell.swift */; };
 		F8531616203005DF002CF997 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8531615203005DF002CF997 /* Message.swift */; };
 		F86E316F2035887200BC11F9 /* GroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86E316E2035887200BC11F9 /* GroupCell.swift */; };
+		F86E31732035928D00BC11F9 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86E31722035928D00BC11F9 /* Group.swift */; };
 		F8753FB92032E48400AFCBE6 /* CreateGroupsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8753FB82032E48400AFCBE6 /* CreateGroupsVC.swift */; };
 		F8753FBB2032E83400AFCBE6 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8753FBA2032E83400AFCBE6 /* UserCell.swift */; };
 /* End PBXBuildFile section */
@@ -54,6 +55,7 @@
 		F853161120300300002CF997 /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
 		F8531615203005DF002CF997 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		F86E316E2035887200BC11F9 /* GroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCell.swift; sourceTree = "<group>"; };
+		F86E31722035928D00BC11F9 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		F8753FB82032E48400AFCBE6 /* CreateGroupsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGroupsVC.swift; sourceTree = "<group>"; };
 		F8753FBA2032E83400AFCBE6 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -152,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				F8531615203005DF002CF997 /* Message.swift */,
+				F86E31722035928D00BC11F9 /* Group.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -317,6 +320,7 @@
 				F85315E5202F5D22002CF997 /* AppDelegate.swift in Sources */,
 				F853160A202F8119002CF997 /* AuthService.swift in Sources */,
 				F8753FB92032E48400AFCBE6 /* CreateGroupsVC.swift in Sources */,
+				F86E31732035928D00BC11F9 /* Group.swift in Sources */,
 				F8753FBB2032E83400AFCBE6 /* UserCell.swift in Sources */,
 				F85315E7202F5D22002CF997 /* FeedVC.swift in Sources */,
 				F8531608202F7F1D002CF997 /* ShadowView.swift in Sources */,

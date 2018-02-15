@@ -82,6 +82,26 @@ class DataService   {
         handler(true)
     }
     
+    //MARK: - Get All Groups
+    func getAllGroups(handler: @escaping (_ groupsArray: [Group]) -> ()) {
+        var groupsArray = [Group]()
+        REF_GROUPS.observeSingleEvent(of: .value) { (groupSnapshot) in
+            guard let groupSnapshot = groupSnapshot.children.allObjects as? [DataSnapshot]  else { return }
+            for group in groupSnapshot  {
+                let memberArray = group.childSnapshot(forPath: "members").value as! [String]
+                    //check to see current user is in group
+                if memberArray.contains((Auth.auth().currentUser?.uid)!)    {
+                    let title = group.childSnapshot(forPath: "title").value as! String
+                    let description = group.childSnapshot(forPath: "description").value as! String
+                    
+                    let group = Group(title: title, description: description, key: group.key, members: memberArray, memberCount: memberArray.count)
+                groupsArray.append(group)
+                }
+            }
+            handler(groupsArray)
+        }
+    }
+    
     func uploadPost(withMessage message: String, forUID uid: String, withGroupKey groupKey: String?, sendComplete: @escaping (_ status: Bool) -> ())   {
         if groupKey != nil  {
             //send to group refs
@@ -122,6 +142,4 @@ class DataService   {
             handler(emailArray)
         }
     }
-    
-    
 }
