@@ -47,8 +47,8 @@ class DataService   {
     func createDBUser(uid: String, userData: Dictionary<String, Any>)   {
         REF_USERS.child(uid).updateChildValues(userData)
     }
-    
-    func getUsername(forUID: String, handler: @escaping (_ username: String) -> ()) {
+        //Convert UID into emails
+    func getUsername(forUID uid: String, handler: @escaping (_ username: String) -> ()) {
           // Looks through one time,
         REF_USERS.observeSingleEvent(of: .value) { (userSnapshot) in
             guard let userSnapshot = userSnapshot.children.allObjects as? [DataSnapshot] else { return }
@@ -58,6 +58,28 @@ class DataService   {
                 }
             }
         }
+    }
+        //Convert email into UID
+    func getIds(forUsername usernames: [String], handler: @escaping (_ uidArray: [String]) -> ())  {
+        REF_USERS.observeSingleEvent(of: .value) { (userSnapshot) in
+           var idArray = [String]()
+            guard let userSnapshot = userSnapshot.children.allObjects as? [DataSnapshot] else { return }
+            for user in userSnapshot {
+                let email = user.childSnapshot(forPath: "email").value as! String
+                
+                if usernames.contains(email)    {
+                    idArray.append(user.key)
+                }
+            }
+            handler(idArray)
+        }
+    }
+    
+    //MARK: - Create Group
+    
+    func createGroup(withTitle title: String, andDescription description: String, forUserIds ids: [String], handler: @escaping (_ groupCreated: Bool) -> ())    {
+        REF_GROUPS.childByAutoId().updateChildValues(["title":title, "description": description, "memebers":ids])
+        handler(true)
     }
     
     func uploadPost(withMessage message: String, forUID uid: String, withGroupKey groupKey: String?, sendComplete: @escaping (_ status: Bool) -> ())   {
@@ -83,6 +105,8 @@ class DataService   {
             handler(messages)
         }
     }
+    
+    //MARK: - Search through email, in realtime
     
     func getEmail(forSearchQuery query: String, handler: @escaping (_ emailArray: [String]) -> ())    {
         var emailArray = [String]()

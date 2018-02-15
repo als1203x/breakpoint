@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class CreateGroupsVC: UIViewController {
 
@@ -18,7 +19,7 @@ class CreateGroupsVC: UIViewController {
     @IBOutlet weak var doneBtn: UIButton!
     
     var emailArray = [String]()
-    
+    var selectedUserArray = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +30,12 @@ class CreateGroupsVC: UIViewController {
         emailSearchTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        doneBtn.isHidden = true
+    }
+    
+    
     @objc func textFieldDidChange() {
         if emailSearchTextField.text == "" {
             tableView.reloadData()
@@ -42,7 +49,21 @@ class CreateGroupsVC: UIViewController {
     }
 
     @IBAction func doneBtnPressed(_ sender: Any) {
-        
+        if titleTextField.text != "" && descriptionTextField.text != "" {
+            DataService.instance.getIds(forUsername: selectedUserArray, handler: { (idsArray ) in
+                var userIds = idsArray
+                userIds.append((Auth.auth().currentUser?.uid)!)
+                
+                DataService.instance.createGroup(withTitle: self.titleTextField.text!, andDescription: self.descriptionTextField.text!, forUserIds: userIds, handler: { (groupCreated) in
+                    if groupCreated {
+                        self.dismiss(animated: true, completion: nil)
+                    }else   {
+                        //UIAlert
+                        print("Group could not be created. Please try again")
+                    }
+                })
+            })
+        }
     }
     
     
@@ -64,13 +85,34 @@ extension CreateGroupsVC: UITableViewDelegate, UITableViewDataSource    {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "userCell") as? UserCell else { return UITableViewCell()}
-   
         let profileImg = UIImage(named: "defaultProfileImage")
-        cell.configureCell(profileImage: profileImg!, email: emailArray[indexPath.row], isSelected: true)
         
+        if selectedUserArray.contains(emailArray[indexPath.row])    {
+            cell.configureCell(profileImage: profileImg!, email: emailArray[indexPath.row], isSelected: true)
+        }else   {
+            cell.configureCell(profileImage: profileImg!, email: emailArray[indexPath.row], isSelected: false)
+        }
         return cell
-    
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let cell = tableView.cellForRow(at: indexPath) as? UserCell else { return }
+        if selectedUserArray.contains(cell.emailLbl.text!)  {
+            // To remove from array, must filter to exclue removed element, returns
+            selectedUserArray = selectedUserArray.filter({ $0 != cell.emailLbl.text!})
+            if selectedUserArray.count >= 1     {
+                groupMemberLbl.text = selectedUserArray.joined(separator: ", ")
+                doneBtn.isHidden = false
+            }else   {
+                groupMemberLbl.text = "add people to your group"
+                doneBtn.isHidden = true
+            }
+        }else   {
+            selectedUserArray.append(cell.emailLbl.text!)
+            groupMemberLbl.text = selectedUserArray.joined(separator: ", ")
+            
+        }
+    }
+    
 }
 
 

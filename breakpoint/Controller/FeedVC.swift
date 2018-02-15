@@ -13,6 +13,7 @@ class FeedVC: UIViewController {
     var messages = [Message]()
     
     @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -30,7 +31,6 @@ class FeedVC: UIViewController {
         }
     }
 }
-
 
 
 extension FeedVC: UITableViewDelegate, UITableViewDataSource    {
