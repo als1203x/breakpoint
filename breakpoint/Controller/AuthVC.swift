@@ -16,7 +16,7 @@ class AuthVC: UIViewController, GIDSignInUIDelegate, FBSDKLoginButtonDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-/*
+
         //Add Facebook Button
         let loginBtn = FBSDKLoginButton()
         view.addSubview(loginBtn)
@@ -27,7 +27,7 @@ class AuthVC: UIViewController, GIDSignInUIDelegate, FBSDKLoginButtonDelegate {
         loginBtn.delegate = self
             //
         loginBtn.readPermissions = ["email", "public_profile"]
-       
+/*
             //add custom fb login button
         let customFBButton = UIButton(type: .system)
         customFBButton.backgroundColor = .blue
@@ -37,12 +37,8 @@ class AuthVC: UIViewController, GIDSignInUIDelegate, FBSDKLoginButtonDelegate {
         customFBButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
         customFBButton.addTarget(self, action: #selector(handleCustomFBLogin), for: .touchUpInside)
         view.addSubview(customFBButton)
-   */
-        //add Google SignIn Button
-        let googleBtn = GIDSignInButton()
-        googleBtn.frame = CGRect(x: 16, y: 246, width: view.frame.width - 32, height: 50)
-        view.addSubview(googleBtn)
- /*
+
+ 
         //Set up customButton
         let customButton = UIButton(type: .system)
         customButton.frame = CGRect(x: 16, y: 246, width: view.frame.width - 32, height: 50)
@@ -56,6 +52,24 @@ class AuthVC: UIViewController, GIDSignInUIDelegate, FBSDKLoginButtonDelegate {
     }
     
     
+            //Protocol Methods For Facebook DEFAULT
+    func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
+        print("Did log out of facebook")
+    }
+    
+    func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
+        if error != nil {
+            print("Failed  here:", error)
+            return
+        } // else { print("Successful login with facebook.....")}
+        
+        showEmailAddress()
+    }
+
+    
+
+    
+    //Facebook Custom
     @objc func handleCustomFBLogin()  {
         //print(1234)
         
@@ -68,19 +82,7 @@ class AuthVC: UIViewController, GIDSignInUIDelegate, FBSDKLoginButtonDelegate {
             //print(result!.token.tokenString)
         }
     }
-    
-    func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
-        print("Did log out of facebook")
-    }
-
-    func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
-        if error != nil {
-            print("Failed  here:", error)
-            return
-        } // else { print("Successful login with facebook.....")}
-        
-        showEmailAddress()
-    }
+    //// For retrieving user infor of the Facebook User
     
     func showEmailAddress() {
         //To retrieve information from the FacebookUser Name, Id, Email
@@ -105,7 +107,17 @@ class AuthVC: UIViewController, GIDSignInUIDelegate, FBSDKLoginButtonDelegate {
     }
 
     
-    fileprivate func setUpGoogleButton(){}
+    fileprivate func setUpGoogleButton(){
+        
+        
+        //add Google SignIn Button
+        let googleBtn = GIDSignInButton()
+        googleBtn.frame = CGRect(x: 16, y: 246, width: view.frame.width - 32, height: 50)
+        view.addSubview(googleBtn)
+        
+        GIDSignIn.sharedInstance().uiDelegate = self
+        
+    }
     
     fileprivate func setupFacebookButton(){}
     

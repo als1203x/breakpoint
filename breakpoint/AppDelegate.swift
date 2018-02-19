@@ -62,12 +62,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         if !handled {
                 //To get google View to return to app
           GIDSignIn.sharedInstance().handle(url, sourceApplication:options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String, annotation: [:])
+            
         }
         return true
     }
     
     
-        //Called after log in successful
+        //Called after log in successful -- Google
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         if let err = error{
             print("Failed to log into Google", err)
@@ -78,7 +79,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             //For Auth in Firebase with Google User
         guard let authentication = user.authentication else { return }
         let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken, accessToken: authentication.accessToken)
-
+        
         Auth.auth().signIn(with: credential) { (user, error) in
             if let err = error {
                 //Failed to sign in
@@ -86,7 +87,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                 return
             }
             // User is signed in
-                print("Successful user creation")
+                print("Successful user creation in Friebase", user!.uid)
         }
     }
     
