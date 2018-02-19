@@ -16,7 +16,7 @@ class AuthVC: UIViewController, GIDSignInUIDelegate, FBSDKLoginButtonDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+/*
         //Add Facebook Button
         let loginBtn = FBSDKLoginButton()
         view.addSubview(loginBtn)
@@ -27,7 +27,7 @@ class AuthVC: UIViewController, GIDSignInUIDelegate, FBSDKLoginButtonDelegate {
         loginBtn.delegate = self
             //
         loginBtn.readPermissions = ["email", "public_profile"]
-/*
+
             //add custom fb login button
         let customFBButton = UIButton(type: .system)
         customFBButton.backgroundColor = .blue
@@ -38,7 +38,7 @@ class AuthVC: UIViewController, GIDSignInUIDelegate, FBSDKLoginButtonDelegate {
         customFBButton.addTarget(self, action: #selector(handleCustomFBLogin), for: .touchUpInside)
         view.addSubview(customFBButton)
 
- 
+ */
         //Set up customButton
         let customButton = UIButton(type: .system)
         customButton.frame = CGRect(x: 16, y: 246, width: view.frame.width - 32, height: 50)
@@ -47,9 +47,14 @@ class AuthVC: UIViewController, GIDSignInUIDelegate, FBSDKLoginButtonDelegate {
         customButton.setTitleColor(.white, for: .normal)
         customButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
         customButton.addTarget(self, action: #selector(handleCustomGoogleSign), for: .touchUpInside)
-   */
+        view.addSubview(customButton)
         GIDSignIn.sharedInstance().uiDelegate = self
     }
+        //Custom Google button action
+    @objc func handleCustomGoogleSign() {
+        GIDSignIn.sharedInstance().signIn()
+    }
+    
     
     
             //Protocol Methods For Facebook DEFAULT
@@ -95,10 +100,7 @@ class AuthVC: UIViewController, GIDSignInUIDelegate, FBSDKLoginButtonDelegate {
         })
     }
     
-    @objc func handleCustomGoogleSign() {
-        GIDSignIn.sharedInstance().signIn()
-    }
-    
+   
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if Auth.auth().currentUser != nil   {
