@@ -50,7 +50,7 @@ class CreateGroupsVC: UIViewController {
 
     @IBAction func doneBtnPressed(_ sender: Any) {
         if titleTextField.text != "" && descriptionTextField.text != "" {
-            DataService.instance.getIds(forUsername: selectedUserArray, handler: { (idsArray ) in
+            DataService.instance.getIds(forUsername: selectedUserArray, handler: { ( idsArray ) in
                 var userIds = idsArray
                 userIds.append((Auth.auth().currentUser?.uid)!)
                 
@@ -94,6 +94,7 @@ extension CreateGroupsVC: UITableViewDelegate, UITableViewDataSource    {
         }
         return cell
     }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let cell = tableView.cellForRow(at: indexPath) as? UserCell else { return }
         if selectedUserArray.contains(cell.emailLbl.text!)  {
@@ -109,10 +110,8 @@ extension CreateGroupsVC: UITableViewDelegate, UITableViewDataSource    {
         }else   {
             selectedUserArray.append(cell.emailLbl.text!)
             groupMemberLbl.text = selectedUserArray.joined(separator: ", ")
-            
         }
     }
-    
 }
 
 

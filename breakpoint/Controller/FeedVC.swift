@@ -25,7 +25,7 @@ class FeedVC: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         DataService.instance.getAllFeedMessages { (returnMessages) in
-                // to flip array and display most recent added 
+                // to flip array and display most recent added on top
             self.messages = returnMessages.reversed()
             self.tableView.reloadData()
         }

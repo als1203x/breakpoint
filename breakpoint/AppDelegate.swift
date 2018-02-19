@@ -8,9 +8,15 @@
 
 import UIKit
 import Firebase
+import GoogleSignIn
+import FBSDKCoreKit
+
+var fbAccessToken: FBSDKAccessToken? // Put in CONTSTANS
+var currentUser = Auth.auth().currentUser //Put in CONSTANTS
+
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 
     var window: UIWindow?
 
@@ -19,20 +25,71 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
 
         FirebaseApp.configure()
+      
+
+            //Google
+        GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
+            //If user signed in with google
+        GIDSignIn.sharedInstance().delegate = self
         
-        //if user is not logged In
-        if Auth.auth().currentUser == nil   {
+        //Facebook
+        FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+        
+        fbAccessToken = FBSDKAccessToken.current()
+        
+                //If user is not logged In
+        if currentUser == nil   {
             let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
             let authVC = storyboard.instantiateViewController(withIdentifier: "AuthVC")
             
-            //Modify Window -
+            //Modify Window - 
             window?.makeKeyAndVisible()
             window?.rootViewController?.present(authVC, animated: true, completion: nil)
+        }else   {
+            //moveToHomeScreen -- Authicated by Google/ Facebook/ Email
         }
-        
-        
+ 
         return true
     }
+    
+    
+        //Facebook
+        //Source Annotions for the login in applications
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+            //Facebook
+        let handled: Bool = FBSDKApplicationDelegate.sharedInstance().application(app, open: url, sourceApplication: options[UIApplicationOpenURLOptionsKey.annotation] as! String, annotation: options[UIApplicationOpenURLOptionsKey.annotation])
+        
+        if !handled {
+                //To get google View to return to app
+          GIDSignIn.sharedInstance().handle(url, sourceApplication:options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String, annotation: [:])
+        }
+        return true
+    }
+    
+    
+        //Called after log in successful
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        if let err = error{
+            print("Failed to log into Google", err)
+            return
+        }
+        print("Successfully logged into Google", user)
+        
+            //For Auth in Firebase with Google User
+        guard let authentication = user.authentication else { return }
+        let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken, accessToken: authentication.accessToken)
+
+        Auth.auth().signIn(with: credential) { (user, error) in
+            if let err = error {
+                //Failed to sign in
+                print("Failed to create a Firebase User with Google account:", err)
+                return
+            }
+            // User is signed in
+                print("Successful user creation")
+        }
+    }
+    
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

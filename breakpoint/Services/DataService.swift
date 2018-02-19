@@ -119,6 +119,8 @@ class DataService   {
     func uploadPost(withMessage message: String, forUID uid: String, withGroupKey groupKey: String?, sendComplete: @escaping (_ status: Bool) -> ())   {
         if groupKey != nil  {
             //send to group refs
+            REF_GROUPS.child(groupKey!).child("messages").childByAutoId().updateChildValues(["content":message, "senderId": uid])
+            sendComplete(true)
         }else   {
                 //generates a uid for every message created
             REF_FEED.childByAutoId().updateChildValues(["content": message, "senderId": uid])
@@ -139,6 +141,40 @@ class DataService   {
             handler(messages)
         }
     }
+    
+    
+    func getAllMessagesFor(desiredGroup: Group, handler: @escaping (_ messagesArray: [Message]) -> ())  {
+        var groupMessageArray = [Message]()
+        REF_GROUPS.child(desiredGroup.key).child("messages").observeSingleEvent(of: .value) { (groupMessageSnapshot) in
+            guard let groupMessageSnapshot = groupMessageSnapshot.children.allObjects as? [DataSnapshot] else { return }
+            for groupMessage in groupMessageSnapshot    {
+                let content = groupMessage.childSnapshot(forPath: "content").value as! String
+                let senderId = groupMessage.childSnapshot(forPath: "senderId").value as! String
+                let message = Message(content: content, senderId: senderId)
+                groupMessageArray.append(message)
+            }
+            handler(groupMessageArray)
+        }
+    }
+    
+    func getAllGroupMessagesFor(handler: @escaping (_ groupMessageArray: [Message]) -> ()) {
+        var groupMessages = [Message]()
+        DataService.instance.getAllGroups { (returnedGroups) in
+            for group in returnedGroups {
+                if group.members.contains(Auth.auth().currentUser!.uid) {
+                    DataService.instance.getAllMessagesFor(desiredGroup: group, handler: { (returedMessages) in
+                        for message in returedMessages  {
+                            if message.senderId == Auth.auth().currentUser!.uid {
+                                groupMessages.append(message)
+                            }
+                        }
+                    })
+                }
+            }
+        }
+        handler(groupMessages)
+    }
+    
     
     //MARK: - Search through email, in realtime
     

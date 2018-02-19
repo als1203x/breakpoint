@@ -39,7 +39,6 @@ class LoginVC: UIViewController {
 
             })
         }
-        
     }
     
     @IBAction func closeBtnPressed(_ sender: Any)   {

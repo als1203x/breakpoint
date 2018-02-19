@@ -29,6 +29,9 @@
 		F86E31732035928D00BC11F9 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86E31722035928D00BC11F9 /* Group.swift */; };
 		F86E31752035AA1400BC11F9 /* GroupFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86E31742035AA1400BC11F9 /* GroupFeedCell.swift */; };
 		F86E31772035AAB600BC11F9 /* GroupFeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86E31762035AAB600BC11F9 /* GroupFeedVC.swift */; };
+		F86E31792035CAA700BC11F9 /* UIViewControllerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86E31782035CAA700BC11F9 /* UIViewControllerExt.swift */; };
+		F86E317B2035E01700BC11F9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F86E317A2035E01700BC11F9 /* GoogleService-Info.plist */; };
+		F86E317F2036402500BC11F9 /* UserFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86E317E2036402500BC11F9 /* UserFeedCell.swift */; };
 		F8753FB92032E48400AFCBE6 /* CreateGroupsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8753FB82032E48400AFCBE6 /* CreateGroupsVC.swift */; };
 		F8753FBB2032E83400AFCBE6 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8753FBA2032E83400AFCBE6 /* UserCell.swift */; };
 /* End PBXBuildFile section */
@@ -60,8 +63,12 @@
 		F86E31722035928D00BC11F9 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		F86E31742035AA1400BC11F9 /* GroupFeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupFeedCell.swift; sourceTree = "<group>"; };
 		F86E31762035AAB600BC11F9 /* GroupFeedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupFeedVC.swift; sourceTree = "<group>"; };
+		F86E31782035CAA700BC11F9 /* UIViewControllerExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExt.swift; sourceTree = "<group>"; };
+		F86E317A2035E01700BC11F9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F86E317E2036402500BC11F9 /* UserFeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFeedCell.swift; sourceTree = "<group>"; };
 		F8753FB82032E48400AFCBE6 /* CreateGroupsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGroupsVC.swift; sourceTree = "<group>"; };
 		F8753FBA2032E83400AFCBE6 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
+		F8905E8020392A4E0099131D /* breakpoint.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = breakpoint.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +121,7 @@
 		F85315E3202F5D21002CF997 /* breakpoint */ = {
 			isa = PBXGroup;
 			children = (
+				F8905E8020392A4E0099131D /* breakpoint.entitlements */,
 				F85315E4202F5D22002CF997 /* AppDelegate.swift */,
 				F85315FC202F5E31002CF997 /* Services */,
 				F85315FB202F5E04002CF997 /* Extensions */,
@@ -124,6 +132,7 @@
 				F85315ED202F5D22002CF997 /* Assets.xcassets */,
 				F85315EF202F5D22002CF997 /* LaunchScreen.storyboard */,
 				F85315F2202F5D22002CF997 /* Info.plist */,
+				F86E317A2035E01700BC11F9 /* GoogleService-Info.plist */,
 			);
 			path = breakpoint;
 			sourceTree = "<group>";
@@ -152,6 +161,7 @@
 				F8753FBA2032E83400AFCBE6 /* UserCell.swift */,
 				F86E316E2035887200BC11F9 /* GroupCell.swift */,
 				F86E31742035AA1400BC11F9 /* GroupFeedCell.swift */,
+				F86E317E2036402500BC11F9 /* UserFeedCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -169,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				F853160F202FFCDA002CF997 /* UIViewExt.swift */,
+				F86E31782035CAA700BC11F9 /* UIViewControllerExt.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -218,6 +229,11 @@
 					F85315E0202F5D21002CF997 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -245,6 +261,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F85315F1202F5D22002CF997 /* LaunchScreen.storyboard in Resources */,
+				F86E317B2035E01700BC11F9 /* GoogleService-Info.plist in Resources */,
 				F85315EE202F5D22002CF997 /* Assets.xcassets in Resources */,
 				F85315EC202F5D22002CF997 /* Main.storyboard in Resources */,
 			);
@@ -259,9 +276,12 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-breakpoint/Pods-breakpoint-resources.sh",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -293,6 +313,11 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-breakpoint/Pods-breakpoint-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKShareKit/FBSDKShareKit.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
@@ -300,6 +325,11 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKShareKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
@@ -317,11 +347,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F86E317F2036402500BC11F9 /* UserFeedCell.swift in Sources */,
 				F8531610202FFCDA002CF997 /* UIViewExt.swift in Sources */,
 				F853161220300300002CF997 /* FeedCell.swift in Sources */,
 				F853160C202FEB4D002CF997 /* MeVC.swift in Sources */,
 				F86E316F2035887200BC11F9 /* GroupCell.swift in Sources */,
 				F8531602202F7ADC002CF997 /* AuthVC.swift in Sources */,
+				F86E31792035CAA700BC11F9 /* UIViewControllerExt.swift in Sources */,
 				F85315E9202F5D22002CF997 /* GroupsVC.swift in Sources */,
 				F86E31772035AAB600BC11F9 /* GroupFeedVC.swift in Sources */,
 				F86E31752035AA1400BC11F9 /* GroupFeedCell.swift in Sources */,
@@ -474,8 +506,28 @@
 			baseConfigurationReference = A36E07B51DC2543B8A028CAF /* Pods-breakpoint.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = breakpoint/breakpoint.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6X8K78HFUB;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Bolts\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FBSDKCoreKit\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FBSDKLoginKit\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FBSDKShareKit\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/GTMOAuth2\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/GTMSessionFetcher\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/GoogleToolboxForMac\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/leveldb-library\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/nanopb\"",
+					"\"${PODS_ROOT}/FirebaseAnalytics/Frameworks\"",
+					"\"${PODS_ROOT}/FirebaseAuth/Frameworks\"",
+					"\"${PODS_ROOT}/FirebaseCore/Frameworks\"",
+					"\"${PODS_ROOT}/FirebaseDatabase/Frameworks\"",
+					"\"${PODS_ROOT}/FirebaseInstanceID/Frameworks\"",
+					"\"${PODS_ROOT}/GoogleSignIn/Frameworks\"",
+					/Users/hope/Documents/FacebookSDK,
+				);
 				INFOPLIST_FILE = breakpoint/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ninja.arc.breakpoint;
@@ -490,8 +542,28 @@
 			baseConfigurationReference = 6BCF130641CF19F39F5AA905 /* Pods-breakpoint.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = breakpoint/breakpoint.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6X8K78HFUB;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Bolts\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FBSDKCoreKit\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FBSDKLoginKit\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FBSDKShareKit\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/GTMOAuth2\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/GTMSessionFetcher\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/GoogleToolboxForMac\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/leveldb-library\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/nanopb\"",
+					"\"${PODS_ROOT}/FirebaseAnalytics/Frameworks\"",
+					"\"${PODS_ROOT}/FirebaseAuth/Frameworks\"",
+					"\"${PODS_ROOT}/FirebaseCore/Frameworks\"",
+					"\"${PODS_ROOT}/FirebaseDatabase/Frameworks\"",
+					"\"${PODS_ROOT}/FirebaseInstanceID/Frameworks\"",
+					"\"${PODS_ROOT}/GoogleSignIn/Frameworks\"",
+					/Users/hope/Documents/FacebookSDK,
+				);
 				INFOPLIST_FILE = breakpoint/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ninja.arc.breakpoint;
