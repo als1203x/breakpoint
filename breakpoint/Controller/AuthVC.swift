@@ -58,14 +58,14 @@ class AuthVC: UIViewController, GIDSignInUIDelegate, FBSDKLoginButtonDelegate {
     }
     
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
-        if error != nil {
-            print("Failed  here:", error)
-            return
-        } // else { print("Successful login with facebook.....")}
+        //TASK: when implementing check to see if account in firebase is already created by FB user with email address before login
         
-        showEmailAddress()
+        if error != nil {
+            print("FAILED TO LOGIN here:", error)
+            return
+        }//else   { print("Successful login with facebook.....") }
+        fbAuth()
     }
-
     
     /*
     //Facebook Custom
@@ -82,21 +82,27 @@ class AuthVC: UIViewController, GIDSignInUIDelegate, FBSDKLoginButtonDelegate {
         }
     }
     */
-    
-    //// For retrieving user info of the Facebook User
-    
-    func showEmailAddress() {
+        // Log into firebase and auth user using FB
+    func fbAuth()  {
         //Log into Firebase with FB user
         guard let accessToken = FBSDKAccessToken.current().tokenString else { return }
         let credentials = FacebookAuthProvider.credential(withAccessToken: accessToken)
         Auth.auth().signIn(with: credentials) { (user, error) in
             if error != nil {
                 print("Something went wrong with our FB user:", error ?? "")
+                let loginManager = FBSDKLoginManager()
+                loginManager.logOut()
                 return
             }
             print("Successfully logged in with our user:", user ?? "" )
         }
         
+        showEmailAddress()
+
+    }
+    
+    //// For retrieving user info of the Facebook User
+    func showEmailAddress() {
         //To retrieve information from the FacebookUser Name, Id, Email
         FBSDKGraphRequest(graphPath: "/me", parameters: ["fields": "id, name, email"]).start(completionHandler: { (connection, result, err) in
             if err != nil  {
