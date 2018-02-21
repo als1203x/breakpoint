@@ -67,8 +67,7 @@ class AuthVC: UIViewController, GIDSignInUIDelegate, FBSDKLoginButtonDelegate {
     }
 
     
-
-    
+    /*
     //Facebook Custom
     @objc func handleCustomFBLogin()  {
         //print(1234)
@@ -82,9 +81,22 @@ class AuthVC: UIViewController, GIDSignInUIDelegate, FBSDKLoginButtonDelegate {
             //print(result!.token.tokenString)
         }
     }
-    //// For retrieving user infor of the Facebook User
+    */
+    
+    //// For retrieving user info of the Facebook User
     
     func showEmailAddress() {
+        //Log into Firebase with FB user
+        guard let accessToken = FBSDKAccessToken.current().tokenString else { return }
+        let credentials = FacebookAuthProvider.credential(withAccessToken: accessToken)
+        Auth.auth().signIn(with: credentials) { (user, error) in
+            if error != nil {
+                print("Something went wrong with our FB user:", error ?? "")
+                return
+            }
+            print("Successfully logged in with our user:", user ?? "" )
+        }
+        
         //To retrieve information from the FacebookUser Name, Id, Email
         FBSDKGraphRequest(graphPath: "/me", parameters: ["fields": "id, name, email"]).start(completionHandler: { (connection, result, err) in
             if err != nil  {

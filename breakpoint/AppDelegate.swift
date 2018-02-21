@@ -35,8 +35,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         //Facebook
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
-        fbAccessToken = FBSDKAccessToken.current()
-        
+      //  fbAccessToken = FBSDKAccessToken.current()
+  
                 //If user is not logged In
         if currentUser == nil   {
             let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
@@ -45,9 +45,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             //Modify Window - 
             window?.makeKeyAndVisible()
             window?.rootViewController?.present(authVC, animated: true, completion: nil)
-        }else   {
+        }//else   {
             //moveToHomeScreen -- Authicated by Google/ Facebook/ Email
-        }
+        //}
  
         return true
     }
@@ -57,7 +57,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         //Source Annotions for the login in applications
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
             //Facebook
-        let handled: Bool = FBSDKApplicationDelegate.sharedInstance().application(app, open: url, sourceApplication: options[UIApplicationOpenURLOptionsKey.annotation] as! String, annotation: options[UIApplicationOpenURLOptionsKey.annotation])
+        let handled: Bool = FBSDKApplicationDelegate.sharedInstance().application(app, open: url, sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as! String, annotation: options[UIApplicationOpenURLOptionsKey.annotation])
         
         if !handled {
                 //To get google View to return to app
