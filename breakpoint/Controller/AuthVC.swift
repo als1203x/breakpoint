@@ -97,8 +97,8 @@ class AuthVC: UIViewController, GIDSignInUIDelegate, FBSDKLoginButtonDelegate {
             print("Successfully logged in with our user:", user ?? "" )
         }
         
+        
         showEmailAddress()
-
     }
     
     //// For retrieving user info of the Facebook User

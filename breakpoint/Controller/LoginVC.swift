@@ -36,7 +36,6 @@ class LoginVC: UIViewController {
                         print(String(describing: registrationError?.localizedDescription))
                     }
                 })
-
             })
         }
     }
